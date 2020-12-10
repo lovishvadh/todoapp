@@ -30,18 +30,10 @@ export async function changeDescription(userid, taskId, description) {
     return  (await ApiHelper.put(`users/${userid}/tasks/${taskId}`, {description})).data;
 }
 
-export function createTodo(userid, description, todos) {
-    return dispatch => {
-       ApiHelper.post(`users/${userid}/tasks`, {
-           description
-       }).then((res) => dispatch(updateTodosData({
-           todosData: todos.push(res.data),
-           shouldUpdate: true
-       }))
-       ).catch((err) => {
-           console.log(err);
-           //Err handler
-       });
-    }
+export async function createTodo(userid, description,) {
+    await ApiHelper.post(`users/${userid}/tasks`, {
+        description
+    });
+       
 }
 

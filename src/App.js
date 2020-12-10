@@ -120,10 +120,10 @@ class App extends Component {
     });
   }
 
-  addNewTodo = (event, todoText) => {
+  addNewTodo = async (event, todoText) => {
     event.preventDefault();
     if(todoText) {
-      this.props.dispatch(createTodo(6, todoText, ((this.props.todos || {}).todosData || [])));
+      await createTodo(6, todoText);
       let todos = this.state.todos;
       todos.unshift({id: parseInt(Math.random() * 10000),  description: todoText , completed_at: false, createdAt:  Date.now()});
       this.setState({todos});
