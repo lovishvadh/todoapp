@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Courier New', Courier, monospace;
+  padding-bottom: 50px;
+  padding-top: 100px;
+}
+
+input {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 44px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: 20px;
+  position: fixed;
+  background-color: #EB5757;
+  top:0;
+  left:0;
+  right: 0;
+}
+
+.App {
+  max-width: 1020px;
+  margin: auto;
+  padding: 20px;
+}
+
+.Todo-input {
+  width: 100%;
+}
+
+.Fancy-text {
+  font-family: fantasy;
+  font-weight: 600;
+}
+
+.heart {
+  font-size: 24px;
+  color: #EB5757;
+}
+
+.Container {
+  padding: 20px;
+}
+
+.Footer {
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+  background-color: white;
+}
+
+.collection-item {
+  position: relative;
+  border: 2px solid white;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0px;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  transform: translateY(0px);
+}
+
+.collection-item:hover {
+  border: 2px solid #EB5757;
+  cursor: pointer;
+  transform: scale(1.01);
+  transform-origin: center;
+}
+
+.collection-item.done {
+  position: relative;
+  opacity: 0.7;
+  background-color: rgba(0,0,0,0.1);
+  text-decoration: line-through;
+}
+
+.DeleteIcon {
+  opacity: 0;
+  color: #EB5757;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  cursor: pointer;
+}
+
+.collection-item:hover > .DeleteIcon {
+  opacity: 1;
+}
+
+@keyframes newEntryAnim{
+  0%{
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+    border: 1px solid #EB5757;
+  }
+  50%{
+    opacity: 0.5;
+    transform: scale(1.1);
+    border: 1px solid rgba(235,87,87, 0.5);
+  }
+  100%{
+    display: block;
+    transform: scale(1);
+  }
+}
+
+.animate-me{
+    animation-name: newEntryAnim;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+}
+
+.input-container {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.Todo-input {
+  color: #EB5757;
+  border: none;
+  font-size: 18px;
+}
+
+.standard-input {
+  border: none;
+  font-size: 18px;
+  border-bottom: 1px solid lightgray;
+
+}
+
+.Todo-input:focus, .standard-input:focus {
+  outline: none;
+}
+
+.Todo-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #EB5757;
+  opacity: 1; /* Firefox */
+}
+
+.Todo-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #EB5757;
+}
+
+.Todo-input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #EB5757;
+}
+
+.add-icon {
+  color: #EB5757;
+  padding: 5px;
+}
+
+.input-container {
+  display:flex;
+}
+
+.standard-input {
+  width : "100%";
+}
+
+.Loader {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (max-width: 768px) {
+  .App-header {
+    text-align: center;
   }
 }
